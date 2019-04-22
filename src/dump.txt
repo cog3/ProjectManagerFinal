@@ -1,0 +1,22 @@
+ 
+    // const taskRows = this.state.response.map((task, index) => {
+    //   return <Row 
+    //   key = {index}
+    //   taskTitle = {task.title}
+    //   taskType = {task.type}
+    //   taskStatus = {task.column}
+    //   />;
+    // });
+
+     // if(this.state.response){
+
+    // }
+    // else{
+    //   return(
+    //     <table>
+    //       <tbody>
+    //         {taskRows}
+    //       </tbody>      
+    //     </table>
+
+    //   )

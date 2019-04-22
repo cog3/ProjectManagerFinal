@@ -16,14 +16,19 @@ const url = "https://my-json-server.typicode.com/bnissen24/project2DB/posts";
 
 class App extends React.Component {
   state = { 
-    response: [],
+    response: {
+      column: '',
+      id: '',
+      title: '',
+      type: '',
+    },
     view: 'gridview'
   };
 
 
-  getData(){
+  getData = () => {
     Axios.get(url).then(response => {
-      this.setState({ response: response.data })
+      this.setState({ response: response.data },console.log(response.data))
       .catch(error => {console.log(`error: ${error.message}`) });
     });
   }
@@ -84,16 +89,7 @@ class App extends React.Component {
 
 
   render(){
-    
-    // const taskRows = this.state.response.map((task, index) => {
-    //   return <Row 
-    //   key = {index}
-    //   taskTitle = {task.title}
-    //   taskType = {task.type}
-    //   taskStatus = {task.column}
-    //   />;
-    // });
-
+   
     const {view} = this.state;
 
     switch (view){
@@ -109,29 +105,9 @@ class App extends React.Component {
       default:
         return <h2>Invalid Tab My Guy</h2>
     }
-    // if(this.state.response){
-
-    // }
-    // else{
-    //   return(
-    //     <table>
-    //       <tbody>
-    //         {taskRows}
-    //       </tbody>      
-    //     </table>
-
-    //   )
+   
       return( 
-        
           <h1>This is the App Component mmg</h1>
-      
-        // <div>
-        //     <ul className = "ul">
-        //       <li className = "li"><a href="#">Task View</a></li>
-        //       <li className = "li"><a href="#">List View</a></li>
-        //       <li className = "li"><a href="#">Add View</a></li>
-        //     </ul>
-        // </div>
       );
     }
     
