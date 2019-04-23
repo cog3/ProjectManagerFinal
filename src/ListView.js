@@ -1,11 +1,25 @@
 import React from "react";
-
+import Row from "./Row";
 class ListView extends React.Component{
-
     render(){
-
+        const allTasks = this.props.passingPropsThroughThisVar;
+        console.log(allTasks);
+        const rows = allTasks.map(t => {
+            return(
+                <Row 
+                    taskTitle = {t.title}
+                    taskType = {t.type}
+                    taskStatus = {t.column}
+                />
+            );
+        })
         return(
-            <h1>"This is List View!"</h1>
+            <div>
+                <h1>"This is List View!"</h1>
+                {rows}
+            </div>
+            
+            
         );
     }
 }

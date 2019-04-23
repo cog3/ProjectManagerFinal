@@ -92,7 +92,8 @@ class App extends React.Component {
         passingPropsThroughThisVar = {this.state.response}/>))
       }
       case 'listview':{
-        return(this.formatDivs(<ListView />))
+        return(this.formatDivs(<ListView 
+          passingPropsThroughThisVar = {this.state.response}/>))
       }
       case 'additem':{
         return(this.formatDivs(<AddItem />))
