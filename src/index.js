@@ -16,12 +16,7 @@ const url = "https://my-json-server.typicode.com/bnissen24/project2DB/posts";
 
 class App extends React.Component {
   state = { 
-    response: {
-      column: '',
-      id: '',
-      title: '',
-      type: '',
-    },
+    response: [],
     view: 'gridview'
   };
 
@@ -93,7 +88,8 @@ class App extends React.Component {
 
     switch (view){
       case 'gridview':{
-        return(this.formatDivs(<GridView />))
+        return(this.formatDivs(<GridView 
+        passingPropsThroughThisVar = {this.state.response}/>))
       }
       case 'listview':{
         return(this.formatDivs(<ListView />))
