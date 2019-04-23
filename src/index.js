@@ -28,9 +28,8 @@ class App extends React.Component {
 
   getData = () => {
     Axios.get(url).then(response => {
-      this.setState({ response: response.data },console.log(response.data))
-      .catch(error => {console.log(`error: ${error.message}`) });
-    });
+      this.setState({ response: response.data })
+    }).catch(error => {console.log(`error: ${error.message}`) });;
   }
 
   //update Data
