@@ -2,10 +2,19 @@ import React from "react";
 
 class AddItem extends React.Component{
 
-    render(){
-
+    render(){ 
         return(
-            <h1>"This is the Add Item page!"</h1>
+            <div>
+                <form>
+                    <input type="text" name="task" placeholder="Task Title"></input>
+                </form>
+                <select name="status">
+                    <option value="todo">To-Do</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="review">Review</option>
+                    <option value="done">Done</option>
+                </select> 
+            </div>
         );
     }
 }
