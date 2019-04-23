@@ -4,17 +4,11 @@ import Row from "./Row";
 
 class GridView extends React.Component{
 render(){
-    
-
-
     const allTasks = this.props.passingPropsThroughThisVar;
     const ToDoColumn = allTasks.filter(task => task.column == 'todo') ;
     const InProgressColumn = allTasks.filter(task => task.column == 'in-progress');
     const ReviewColumn = allTasks.filter(task => task.column == 'review');
     const DoneColumn = allTasks.filter(task => task.column == 'done');
-
-
-
     return(
         
         <div>
