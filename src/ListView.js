@@ -1,16 +1,11 @@
 import React from "react";
 import Row from "./Row";
 class ListView extends React.Component{
-    state = { status: '', type: '' }
+    state = { status: '', type: '', sort: 'title' }
 
     onStatusChange() {
 
     }
-
-    function () {
-
-    }
-
     render(){
         const allTasks = this.props.passingPropsThroughThisVar;
         console.log(allTasks);
@@ -23,9 +18,9 @@ class ListView extends React.Component{
                 return (this.state.type) ? t.type === this.state.type : true;
             })
 
-        rows.sort(function (a, b) { // Strings need to be sorted in a slightly more compldex way
-            let nameA = a[this.title.sort].toUpperCase(); // ignore upper and lowercase
-            let nameB = b[this.title.sort].toUpperCase(); // ignore upper and lowercase
+        .sort((a, b) => { // Strings need to be sorted in a slightly more compldex way
+            let nameA = a[this.state.sort].toUpperCase(); // ignore upper and lowercase
+            let nameB = b[this.state.sort].toUpperCase(); // ignore upper and lowercase
             // Sorts alphabetically.  -1 puts it before. 1 puts it after
             if (nameA < nameB) {
                 return -1;
@@ -51,12 +46,12 @@ class ListView extends React.Component{
                     <select name="sort"
                             className="form-control"
                             value={this.props.sort}
-                            onChange={t => {
-                                this.setState({ sort: t.target.value })
+                            onChange={e => {
+                                this.setState({ sort: e.target.value })
                             }}>
-                        <option value="taskTitle">Title</option>
-                        <option value="taskType">Status</option>
-                        <option value="taskStatus">Type</option>
+                        <option value="title">Title</option>
+                        <option value="column">Column</option>
+                        <option value="type">Type</option>
                     </select>
                 </div>
 
