@@ -10,7 +10,7 @@ render(){
     const ReviewColumn = allTasks.filter(task => task.column == 'review');
     const DoneColumn = allTasks.filter(task => task.column == 'done');
     return(
-        
+
         <div>
             <h1>"This is Grid View!"</h1>
             <div>

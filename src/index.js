@@ -83,7 +83,7 @@ class App extends React.Component {
 
 
   render(){
-   
+
     const {view} = this.state;
 
     switch (view){
@@ -108,6 +108,9 @@ class App extends React.Component {
     }
     
 }
+
+
+
 ReactDOM.render(
   <App />,
   document.querySelector('#root')
