@@ -68,6 +68,15 @@ class App extends React.Component {
     this.setState({ view });
   }
 
+getColumn(id){
+  
+}
+ goNextColumn(){
+
+ }
+ goPrevColumn(){
+
+ }
 
   formatDivs(jsxcode){
     const { view } = this.state;
@@ -83,7 +92,7 @@ class App extends React.Component {
 
 
   render(){
-   
+   console.log(this.state.response);
     const {view} = this.state;
 
     switch (view){
@@ -101,10 +110,6 @@ class App extends React.Component {
       default:
         return <h2>Invalid Tab My Guy</h2>
     }
-   
-      return( 
-          <h1>This is the App Component mmg</h1>
-      );
     }
     
 }
