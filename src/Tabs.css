@@ -1,0 +1,15 @@
+.tabs .gridView {
+    cursor: pointer;
+}
+
+.tabs .gridView {
+    color: blue;
+}
+
+.tabs .listview{
+    color: blue;
+}
+
+.tabs .additem {
+    color: blue;
+}

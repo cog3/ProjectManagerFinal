@@ -1,4 +1,5 @@
 import React from "react";
+import './List.css';
 import Row from "./Row";
 class ListView extends React.Component{
     state = { status: '', type: '', sort: 'title' }
@@ -84,8 +85,28 @@ class ListView extends React.Component{
                         <option value="feature">Feature</option>
                         <option value="bug">Bug</option>
                     </select>
+
+                    <div className="list-view__headers">
+                        <h3 className="list-view__header-title--title">
+                            Title
+                        </h3>
+                        {this.props.title}
+                        <h3 className="list-view__header-title--status">
+                            {rows.type}
+                            Status
+                        </h3>
+                        {this.props.column}
+                        <h3 className="list-view__header-title--type">
+                            Type
+                            {this.type}
+                        </h3>
+                        {this.props.type}
+                    </div>
+                    <ul className="list-group">
+                        {rows}
+                    </ul>
                 </div>
-                {rows}
+                /*{rows}*/
             </div>
 
             
