@@ -8,6 +8,7 @@ class ListView extends React.Component{
             return(
                 <Row 
                     taskTitle = {t.title}
+                    id = {t.id}
                     taskType = {t.type}
                     taskStatus = {t.column}
                 />

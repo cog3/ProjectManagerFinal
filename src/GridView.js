@@ -5,12 +5,14 @@ import Row from "./Row";
 class GridView extends React.Component{
 render(){
     const allTasks = this.props.passingPropsThroughThisVar;
-    const ToDoColumn = allTasks.filter(task => task.column == 'todo') ;
-    const InProgressColumn = allTasks.filter(task => task.column == 'in-progress');
-    const ReviewColumn = allTasks.filter(task => task.column == 'review');
-    const DoneColumn = allTasks.filter(task => task.column == 'done');
+    const ToDoColumn = allTasks.filter(task => task.column === 'todo') ;
+    const InProgressColumn = allTasks.filter(task => task.column === 'in-progress');
+    const ReviewColumn = allTasks.filter(task => task.column === 'review');
+    const DoneColumn = allTasks.filter(task => task.column === 'done');
+    
+    
+    
     return(
-        
         <div>
             <h1>"This is Grid View!"</h1>
             <div>
@@ -19,8 +21,10 @@ render(){
                     {ToDoColumn.map(t => 
                         <Row 
                         taskTitle={t.title}
+                        id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
+                        link
                     />)}
                 </div>
                 <div className = "inprogress">
@@ -28,8 +32,11 @@ render(){
                     {InProgressColumn.map(t => 
                         <Row 
                         taskTitle={t.title}
+                        id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
+                        link
+                        link2
                     />)}
                 </div>
                 <div className = "review">
@@ -37,8 +44,11 @@ render(){
                     {ReviewColumn.map(t => 
                         <Row 
                         taskTitle={t.title}
+                        id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
+                        link
+                        link
                     />)}
                 </div>
                 <div className = "done">
@@ -46,8 +56,10 @@ render(){
                     {DoneColumn.map(t => 
                         <Row 
                         taskTitle={t.title}
+                        id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
+                        link
                     />)}
                 </div>        
             </div>
