@@ -10,7 +10,7 @@ render(){
     const ReviewColumn = allTasks.filter(task => task.column === 'review');
     const DoneColumn = allTasks.filter(task => task.column === 'done');
     
-    
+    const updatePost = this.props.updatePost;
     
     return(
         <div>
@@ -20,47 +20,52 @@ render(){
                     <h1>To-DO</h1>
                     {ToDoColumn.map(t => 
                         <Row 
+                        allTasks = {allTasks}
+                        updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
-                        link
-                    />)}
+                        link/>
+                    )}
                 </div>
                 <div className = "inprogress">
                     <h1>In Progress</h1>
                     {InProgressColumn.map(t => 
                         <Row 
+                        updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
                         link
-                        link2
-                    />)}
+                        link2/>
+                    )}
                 </div>
                 <div className = "review">
                     <h1>Review</h1>
-                    {ReviewColumn.map(t => 
+                    {ReviewColumn.map(t =>
                         <Row 
+                        updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
                         link
-                        link
-                    />)}
+                        link2/>
+                    )}
                 </div>
                 <div className = "done">
                     <h1>Done</h1>
-                    {DoneColumn.map(t => 
+                    {DoneColumn.map(t =>
                         <Row 
+                        updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
                         taskType = {t.type}
                         taskStatus = {t.column}
-                        link
-                    />)}
+                        link/>
+                    )}
                 </div>        
             </div>
         </div>

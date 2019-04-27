@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   //update Data
-  updatePost(id, isTitle, isType, isStatus){
+  updatePost = (id, isTitle, isType, isStatus) =>{
     Axios.put(url + '/' + id, {
     title: isTitle,
     type: isType,
@@ -68,16 +68,6 @@ class App extends React.Component {
     this.setState({ view });
   }
 
-getColumn(id){
-  
-}
- goNextColumn(){
-
- }
- goPrevColumn(){
-
- }
-
   formatDivs(jsxcode){
     const { view } = this.state;
     return(
@@ -92,13 +82,12 @@ getColumn(id){
 
 
   render(){
-   console.log(this.state.response);
     const {view} = this.state;
-
     switch (view){
       case 'gridview':{
         return(this.formatDivs(<GridView 
-        passingPropsThroughThisVar = {this.state.response}/>))
+        passingPropsThroughThisVar = {this.state.response}
+        updatePost = {this.updatePost}/>))
       }
       case 'listview':{
         return(this.formatDivs(<ListView 
