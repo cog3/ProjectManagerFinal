@@ -1,33 +1,53 @@
 import React from "react";
-
 const Row = (props) => {
-    const { taskTitle, taskType, taskStatus, id } = props;
+    let { taskTitle, taskType, taskStatus, id, key } = props;
     let { link, link2 } = props;
-    const column = ["in-progress", "review", "todo", "done"]
+    const statuses = ["done", "review", "in-progress", "todo"];
+
     if(taskStatus === "done"){
         link = 'Request Re-Review'
-        let currentColumn = column[3];
     }
     else if(taskStatus === "review"){
         link = "More work Required";
-        link2 = "Mark Done"
-        let currentColumn = column[1];
-
+        link2 = "Mark Done";
     }
     else if(taskStatus === "in-progress"){
         link = "Send Back";
         link2 = "Request Review";
-        let currentColumn = column[0];
-
     }
     else if(taskStatus === "todo"){
         link = "Start Work";
-        let currentColumn = column[2];
-
     }
-   
+    
+    //THIS CODE WORKS
+    console.log(props.allTasks);//here we got all the tasks
+    function findTask(taskId){
+        return props.allTasks.find(task => task.id === taskId);
+    }
+    console.log(findTask(1));
+    //THIS CODE WORKS
 
-    return(
+    function prevColumn(taskId){
+        let task = findTask(taskId);
+        console.log(task.column);
+        let columnIndex = statuses.findIndex(name => task.column === name);
+        if (columnIndex > 0) {
+          columnIndex--
+          task.column = statuses[columnIndex];
+          props.updatePost(task.id, task.title, task.type, task.column);
+        }
+      }
+      function nextColumn(taskId){
+        let task = findTask(taskId);
+        console.log(task.column);
+        let columnIndex = statuses.findIndex(name => task.column === name);
+        if (columnIndex < statuses) {
+          columnIndex++
+          task.column = statuses[columnIndex];
+          props.updatePost(task.id, task.title, task.type, task.column);
+        }
+    }
+       return(
         <div>
         <tr>
             <td>
@@ -36,11 +56,10 @@ const Row = (props) => {
                 <p>{taskType}</p>
                 <p>{taskStatus}</p>
                 <p>
-                    <a onClick = {props.column === "done" ? this.props.updatePost(props.id, props.title, props.type, 'review'): 
-                    this.props.updatePost(props.id, props.title, props.type, props.column)}>{link}</a>
+                    <button onClick = {prevColumn(id)}>{link}</button>>
                 </p>
                 <p>
-                    <a onClick="">{link2}</a>
+                    <button onClick = {nextColumn(id)}>{link2}</button>>
                 </p>
             </td>
             
@@ -50,7 +69,3 @@ const Row = (props) => {
     );
 }
 export default Row;
-//(isMember ? "$2.00" : "$10.00");
-// x == y ? z + x :
-//   x == z ? z + y :
-//   z + 1;
