@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import functional components
-import Row from './Row'; 
+//import Row from './Row'; 
 import Tabs from './Tabs';
 import ListView from './ListView';
 import AddItem from './AddItem';
@@ -67,7 +67,7 @@ class App extends React.Component {
   viewChange(view){
     this.setState({ view });
   }
-
+//pass in whole components
   formatDivs(jsxcode){
     const { view } = this.state;
     return(
@@ -77,6 +77,7 @@ class App extends React.Component {
       </div>
     );
   }
+  /**Need to Understand More.. */
 
 
 

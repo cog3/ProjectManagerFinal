@@ -33,6 +33,7 @@ render(){
                     <h1>In Progress</h1>
                     {InProgressColumn.map(t => 
                         <Row 
+                        allTasks = {allTasks}
                         updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
@@ -46,6 +47,7 @@ render(){
                     <h1>Review</h1>
                     {ReviewColumn.map(t =>
                         <Row 
+                        allTasks = {allTasks}
                         updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}
@@ -59,6 +61,7 @@ render(){
                     <h1>Done</h1>
                     {DoneColumn.map(t =>
                         <Row 
+                        allTasks = {allTasks}
                         updatePost = {updatePost}
                         taskTitle={t.title}
                         id = {t.id}

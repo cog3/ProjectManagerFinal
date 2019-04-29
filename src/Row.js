@@ -1,9 +1,8 @@
 import React from "react";
 const Row = (props) => {
-    let { taskTitle, taskType, taskStatus, id, key } = props;
+    let { taskTitle, taskType, taskStatus, id } = props;
     let { link, link2 } = props;
     const statuses = ["done", "review", "in-progress", "todo"];
-
     if(taskStatus === "done"){
         link = 'Request Re-Review'
     }
@@ -18,15 +17,15 @@ const Row = (props) => {
     else if(taskStatus === "todo"){
         link = "Start Work";
     }
-    
-    //THIS CODE WORKS
     console.log(props.allTasks);//here we got all the tasks
     function findTask(taskId){
-        return props.allTasks.find(task => task.id === taskId);
+        console.log(props.allTasks);
+        let tasks = props.allTasks.slice();
+        console.log(tasks);
+        return tasks.find(tasks => tasks.id === taskId);
     }
-    console.log(findTask(1));
+    console.log(findTask(1)); //IT WORKS NOW
     //THIS CODE WORKS
-
     function prevColumn(taskId){
         let task = findTask(taskId);
         console.log(task.column);
@@ -37,7 +36,7 @@ const Row = (props) => {
           props.updatePost(task.id, task.title, task.type, task.column);
         }
       }
-      function nextColumn(taskId){
+    function nextColumn(taskId){
         let task = findTask(taskId);
         console.log(task.column);
         let columnIndex = statuses.findIndex(name => task.column === name);
@@ -47,7 +46,7 @@ const Row = (props) => {
           props.updatePost(task.id, task.title, task.type, task.column);
         }
     }
-       return(
+    return(
         <div>
         <tr>
             <td>
@@ -69,3 +68,6 @@ const Row = (props) => {
     );
 }
 export default Row;
+
+//<button onClick = {prevColumn(id)}>{link}</button>>
+//<button onClick = {nextColumn(id)}>{link2}</button>>
