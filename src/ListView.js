@@ -8,8 +8,10 @@ class ListView extends React.Component{
 
     }
     render(){
+        
         const allTasks = this.props.passingPropsThroughThisVar;
         console.log(allTasks);
+<<<<<<< HEAD
         const rows = allTasks
 
             .filter(t => {
@@ -39,6 +41,18 @@ class ListView extends React.Component{
                     />
                 );
             });
+=======
+        const rows = allTasks.map(t => {
+            return(
+                <Row 
+                    taskTitle = {t.title}
+                    id = {t.id}
+                    taskType = {t.type}
+                    taskStatus = {t.column}
+                />
+            );
+        })
+>>>>>>> master
         return(
 
             <div>

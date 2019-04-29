@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import functional components
-import Row from './Row'; 
+//import Row from './Row'; 
 import Tabs from './Tabs';
 import ListView from './ListView';
 import AddItem from './AddItem';
@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   //update Data
-  updatePost(id, isTitle, isType, isStatus){
+  updatePost = (id, isTitle, isType, isStatus) =>{
     Axios.put(url + '/' + id, {
     title: isTitle,
     type: isType,
@@ -67,8 +67,7 @@ class App extends React.Component {
   viewChange(view){
     this.setState({ view });
   }
-
-
+//pass in whole components
   formatDivs(jsxcode){
     const { view } = this.state;
     return(
@@ -78,18 +77,22 @@ class App extends React.Component {
       </div>
     );
   }
+  /**Need to Understand More.. */
 
 
 
 
   render(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     const {view} = this.state;
-
     switch (view){
       case 'gridview':{
         return(this.formatDivs(<GridView 
-        passingPropsThroughThisVar = {this.state.response}/>))
+        passingPropsThroughThisVar = {this.state.response}
+        updatePost = {this.updatePost}/>))
       }
       case 'listview':{
         return(this.formatDivs(<ListView 
@@ -101,10 +104,6 @@ class App extends React.Component {
       default:
         return <h2>Invalid Tab My Guy</h2>
     }
-   
-      return( 
-          <h1>This is the App Component mmg</h1>
-      );
     }
     
 }
