@@ -83,6 +83,10 @@ class App extends React.Component {
 
 
   render(){
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     const {view} = this.state;
     switch (view){
       case 'gridview':{
@@ -103,6 +107,9 @@ class App extends React.Component {
     }
     
 }
+
+
+
 ReactDOM.render(
   <App />,
   document.querySelector('#root')

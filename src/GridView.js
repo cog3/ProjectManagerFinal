@@ -13,6 +13,10 @@ render(){
     const updatePost = this.props.updatePost;
     
     return(
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
         <div>
             <h1>"This is Grid View!"</h1>
             <div>

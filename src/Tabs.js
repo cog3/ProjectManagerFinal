@@ -1,8 +1,8 @@
 import React from "react";
-
+import './Tabs.css'
 class Tabs extends React.Component{
-    
-    
+
+
     onTabClick(tabName) {
         this.props.viewChange(tabName);
     }
